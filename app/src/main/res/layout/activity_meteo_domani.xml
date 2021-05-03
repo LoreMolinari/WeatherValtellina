@@ -1,0 +1,1929 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/meteoContainer"
+    android:orientation="vertical"
+    android:background="@drawable/gradient"
+    android:visibility="visible"
+    android:layout_gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp">
+
+        <RelativeLayout
+            android:id="@+id/meteoContainer2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="50dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/placeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bormio_it"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+
+                <RelativeLayout
+                    android:id="@+id/nextdaysMeteo0"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/day0container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/day0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="26/04/2021"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:orientation="horizontal"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/generalInfo0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="20dp">
+
+                                <ImageView
+                                    android:id="@+id/wIcon0"
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:layout_gravity="left"
+                                    android:contentDescription="TODO"
+                                    android:src="@drawable/sunrise" />
+
+                                <TextView
+                                    android:id="@+id/weather0"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nuvoloso"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:contentDescription="TODO"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Temperatura"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/temperature0"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Percepita"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/feelsLike0"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/sunrise"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alba"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunrise0"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="04:50"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/sunset"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tramonto"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunset0"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="17:51"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/rain"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Precipitazioni"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/rainfall0"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nextdaysMeteo1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/day1container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/day1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="26/04/2021"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:orientation="horizontal"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/generalInfo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="20dp">
+
+                                <ImageView
+                                    android:id="@+id/wIcon1"
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:layout_gravity="left"
+                                    android:src="@drawable/sunrise" />
+
+                                <TextView
+                                    android:id="@+id/weather1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nuvoloso"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Temperatura"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/temperature1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Percepita"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/feelsLike1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/sunrise"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alba"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunrise1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="04:50"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/sunset"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tramonto"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunset1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="17:51"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/rain"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Precipitazioni"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/rainfall1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nextdaysMeteo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/day2container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/day2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="26/04/2021"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:orientation="horizontal"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/generalInfo2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="20dp">
+
+                                <ImageView
+                                    android:id="@+id/wIcon2"
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:layout_gravity="left"
+                                    android:src="@drawable/sunrise" />
+
+                                <TextView
+                                    android:id="@+id/weather2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nuvoloso"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Temperatura"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/temperature2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Percepita"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/feelsLike2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/sunrise"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alba"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunrise2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="04:50"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/sunset"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tramonto"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunset2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="17:51"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/rain"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Precipitazioni"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/rainfall2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nextdaysMeteo4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/day3container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/day3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="26/04/2021"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:orientation="horizontal"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/generalInfo3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="20dp">
+
+                                <ImageView
+                                    android:id="@+id/wIcon3"
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:layout_gravity="left"
+                                    android:src="@drawable/sunrise" />
+
+                                <TextView
+                                    android:id="@+id/weather3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nuvoloso"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Temperatura"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/temperature3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Percepita"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/feelsLike3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/sunrise"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alba"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunrise3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="04:50"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/sunset"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tramonto"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunset3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="17:51"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/rain"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Precipitazioni"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/rainfall3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nextdaysMeteo5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/day4container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/day4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="26/04/2021"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:orientation="horizontal"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/generalInfo4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="20dp">
+
+                                <ImageView
+                                    android:id="@+id/wIcon4"
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:layout_gravity="left"
+                                    android:contentDescription="TODO"
+                                    android:src="@drawable/sunrise" />
+
+                                <TextView
+                                    android:id="@+id/weather4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nuvoloso"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Temperatura"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/temperature4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Percepita"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/feelsLike4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/sunrise"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alba"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunrise4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="04:50"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/sunset"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tramonto"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunset4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="17:51"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/rain"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Precipitazioni"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/rainfall4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nextdaysMeteo6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/day5container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/day5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="26/04/2021"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:orientation="horizontal"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/generalInfo5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="20dp">
+
+                                <ImageView
+                                    android:id="@+id/wIcon5"
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:layout_gravity="left"
+                                    android:contentDescription="@string/todo"
+                                    android:src="@drawable/sunrise" />
+
+                                <TextView
+                                    android:id="@+id/weather5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nuvoloso"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:contentDescription="@string/todo"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Temperatura"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/temperature5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:contentDescription="@string/todo"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Percepita"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/feelsLike5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:contentDescription="@string/todo"
+                                    android:src="@drawable/sunrise"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alba"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunrise5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="04:50"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:contentDescription="@string/todo"
+                                    android:src="@drawable/sunset"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tramonto"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunset5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="17:51"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:contentDescription="@string/todo"
+                                    android:src="@drawable/rain"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Precipitazioni"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/rainfall5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nextdaysMeteo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/day6container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/day6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="26/04/2021"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:orientation="horizontal"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/generalInfo6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="20dp">
+
+                                <ImageView
+                                    android:id="@+id/wIcon6"
+                                    android:layout_width="75dp"
+                                    android:layout_height="75dp"
+                                    android:layout_gravity="left"
+                                    android:contentDescription="@string/todo"
+                                    android:src="@drawable/sunrise" />
+
+                                <TextView
+                                    android:id="@+id/weather6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nuvoloso"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:contentDescription="@string/todo"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Temperatura"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/temperature6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:contentDescription="TODO"
+                                    android:src="@drawable/temperature"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Percepita"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/feelsLike6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:contentDescription="@string/todo"
+                                    android:src="@drawable/sunrise"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alba"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunrise6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="04:50"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:contentDescription="@string/todo"
+                                    android:src="@drawable/sunset"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tramonto"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/sunset6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="17:51"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/linearbgrounded"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/rain"
+                                    android:tint="#FFFFFF" />
+
+                                <Space
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Precipitazioni"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+
+                                <TextView
+                                    android:id="@+id/rainfall6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="7.2 mm"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </RelativeLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <ProgressBar
+            android:id="@+id/caricamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="50dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/errore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Qualcosa è andato storto riprovare!"
+            android:visibility="gone" />
+    </RelativeLayout>
+</ScrollView>

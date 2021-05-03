@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Weather Valtellina</string>
+    <string name="valfurva">Valfurva</string>
+    <string name="meteo_valtellina">Meteo Valtellina</string>
+    <string name="bormio">Bormio</string>
+    <string name="valdisotto">Valdisotto</string>
+    <string name="livigno">Livigno</string>
+    <string name="sondalo">Sondalo</string>
+    <string name="sondrio">Sondrio</string>
+    <string name="valdidentro">Valdidentro</string>
+    <string name="bormio_it">Bormio, IT</string>
+
+    <string name="todo">TODO</string>
+</resources>
