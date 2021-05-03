@@ -6,19 +6,19 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 
 @Suppress("SpellCheckingInspection", "NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
-class meteoDomani : AppCompatActivity() {
+class MeteoDomani : AppCompatActivity() {
 
-    /*Inizializzazione città e codice api*/
+    /* Inizializzazione città e codice api */
     var place: String? = "Sondrio"
     var MeteoIcon: Array<Bitmap?> = arrayOfNulls(7)
 
@@ -36,40 +36,54 @@ class meteoDomani : AppCompatActivity() {
     }
 
     @SuppressLint("StaticFieldLeak")
-    inner class weatherTomorrowTask() : AsyncTask<String, Void, String>() {
+    inner class weatherTomorrowTask : AsyncTask<String, Void, String>() {
         override fun onPreExecute() {
             super.onPreExecute()
+
             /* Showing the ProgressBar, Making the main design GONE */
             findViewById<ProgressBar>(R.id.caricamento).visibility = View.VISIBLE
             findViewById<RelativeLayout>(R.id.meteoContainer2).visibility = View.GONE
             findViewById<TextView>(R.id.errore).visibility = View.GONE
         }
+
         override fun doInBackground(vararg params: String?): String? {
-            var response:String?
+            var response: String?
 
-            try{
-                if(place.toString().equals("Valfurva")){
-                    response = URL("https://api.openweathermap.org/data/2.5/onecall?lat=46.414303131132186&lon=10.491103526898536&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric").readText(Charsets.UTF_8)
-                }else if(place.toString().equals("Bormio")) {
-                    response = URL("https://api.openweathermap.org/data/2.5/onecall?lat=46.4684&lon=10.3721&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric").readText(Charsets.UTF_8)
-                }else if(place.toString().equals("Valdidentro")) {
-                    response = URL("https://api.openweathermap.org/data/2.5/onecall?lat=46.4833&lon=10.2833&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric").readText(Charsets.UTF_8)
-                }else if(place.toString().equals("Valdisotto")) {
-                    response = URL("https://api.openweathermap.org/data/2.5/onecall?lat=46.4344&lon=10.357&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric").readText(Charsets.UTF_8)
-                }else if(place.toString().equals("Sondalo")){
-                    response = URL("https://api.openweathermap.org/data/2.5/onecall?lat=46.3301&lon=10.3248&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric").readText(Charsets.UTF_8)
-                }else if(place.toString().equals("Livigno")){
-                    response = URL("https://api.openweathermap.org/data/2.5/onecall?lat=46.5347&lon=10.1337&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric").readText(Charsets.UTF_8)
-                }else{
-                    response = URL("https://api.openweathermap.org/data/2.5/onecall?lat=46.169&lon=9.8692&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric").readText(Charsets.UTF_8)
-                }
+            val defaultPlace = ""
+            val currentPlace = place ?: defaultPlace
 
-            }catch (e: Exception){
+            try {
+                response = URL(
+                    when (currentPlace) {
+                        "Valfurva" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.414303131132186&lon=10.491103526898536&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
+                        }
+                        "Bormio" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.4684&lon=10.3721&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
+                        }
+                        "Valdidentro" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.4833&lon=10.2833&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
+                        }
+                        "Valdisotto" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.4344&lon=10.357&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
+                        }
+                        "Sondalo" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.3301&lon=10.3248&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
+                        }
+                        "Livigno" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.5347&lon=10.1337&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
+                        }
+                        else -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.169&lon=9.8692&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
+                        }
+                    }
+                ).readText(Charsets.UTF_8)
+            } catch (e: Exception) {
                 response = null
                 e.printStackTrace()
             }
 
-            for(x in 0..6){
+            for (x in 0..6) {
                 val icon = JSONObject(response).getJSONArray("daily").getJSONObject(x).getJSONArray("weather").getJSONObject(0).getString("icon")
                 val urldisplay = "https://openweathermap.org/img/wn/$icon@2x.png"
                 try {
@@ -82,6 +96,7 @@ class meteoDomani : AppCompatActivity() {
 
             return response
         }
+
         @SuppressLint("SetTextI18n", "CutPasteId")
         override fun onPostExecute(result: String?) {
             try {
@@ -99,8 +114,8 @@ class meteoDomani : AppCompatActivity() {
 
                 val rainfall = IntArray(7)
 
-                for(x in 0..6){
-                    dayString[x] = SimpleDateFormat("EEEE dd/MM/yyyy", Locale.ITALIAN).format(Date(jsonObj.getJSONArray("daily").getJSONObject(x).getLong("dt")*1000))
+                for (x in 0..6) {
+                    dayString[x] = SimpleDateFormat("EEEE dd/MM/yyyy", Locale.ITALIAN).format(Date(jsonObj.getJSONArray("daily").getJSONObject(x).getLong("dt") * 1000))
                     sunriseString[x] = SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(jsonObj.getJSONArray("daily").getJSONObject(x).getLong("sunrise") * 1000))
                     sunsetString[x] = SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(jsonObj.getJSONArray("daily").getJSONObject(x).getLong("sunset") * 1000))
 
@@ -110,13 +125,13 @@ class meteoDomani : AppCompatActivity() {
                     weather[x] = jsonObj.getJSONArray("daily").getJSONObject(x).getJSONArray("weather").getJSONObject(0).getString("description")
 
                     var rain = 0
-                    try{
+                    try {
                         rain = jsonObj.getJSONArray("daily").getJSONObject(x).getInt("rain")
-                    }
-                    catch(e: Exception) {
-                        try{
-                           rain = jsonObj.getJSONArray("daily").getJSONObject(x).getInt("snow")
-                        }catch (e: Exception){}
+                    } catch (e: Exception) {
+                        try {
+                            rain = jsonObj.getJSONArray("daily").getJSONObject(x).getInt("snow")
+                        } catch (e: Exception) {
+                        }
                     }
 
                     rainfall[x] = rain
@@ -205,7 +220,7 @@ class meteoDomani : AppCompatActivity() {
                 e.printStackTrace()
 
                 val eventopulsante: Button = findViewById(R.id.errore)
-                eventopulsante.setOnClickListener(){
+                eventopulsante.setOnClickListener {
                     weatherTomorrowTask().execute()
                 }
             }
