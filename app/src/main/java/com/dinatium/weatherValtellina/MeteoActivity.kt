@@ -20,7 +20,9 @@ class MeteoActivity : AppCompatActivity() {
 
     /*Inizializzazione città e codice api*/
     var place: String? = "Sondrio"
-    var MeteoIcon: Bitmap? = null
+    var meteoIcon: Bitmap? = null
+    private val wA = WeatherApi()
+    val apiKey: String = wA.getApi()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,12 +59,12 @@ class MeteoActivity : AppCompatActivity() {
         override fun doInBackground(vararg params: String?): String? {
             val response = try {
                 if (place.toString() == "Valfurva") {
-                    URL("https://api.openweathermap.org/data/2.5/weather?lat=46.414303131132186&lon=10.491103526898536&appid=bad9662e97abd6a3ab5f9dbd245f943c&lang=it&units=metric").readText(
-                        Charsets.UTF_8
+                    URL("https://api.openweathermap.org/data/2.5/weather?lat=46.414303131132186&lon=10.491103526898536&appid=$apiKey&lang=it&units=metric").readText(
+                            Charsets.UTF_8
                     )
                 } else {
-                    URL("https://api.openweathermap.org/data/2.5/weather?q=$place&appid=bad9662e97abd6a3ab5f9dbd245f943c&lang=it&units=metric").readText(
-                        Charsets.UTF_8
+                    URL("https://api.openweathermap.org/data/2.5/weather?q=$place&appid=$apiKey&lang=it&units=metric").readText(
+                            Charsets.UTF_8
                     )
                 }
             } catch (e: Exception) {
@@ -70,15 +72,15 @@ class MeteoActivity : AppCompatActivity() {
             }
 
             val icon = JSONObject(response)
-                .getJSONArray("weather")
-                .getJSONObject(0)
-                .getString("icon")
+                    .getJSONArray("weather")
+                    .getJSONObject(0)
+                    .getString("icon")
 
             val urldisplay = "https://openweathermap.org/img/wn/$icon@2x.png"
 
             try {
                 val `in` = URL(urldisplay).openStream()
-                MeteoIcon = BitmapFactory.decodeStream(`in`)
+                meteoIcon = BitmapFactory.decodeStream(`in`)
             } catch (e: java.lang.Exception) {
                 findViewById<TextView>(R.id.errore).text = e.printStackTrace().toString()
                 findViewById<TextView>(R.id.errore).visibility = View.VISIBLE
@@ -112,7 +114,7 @@ class MeteoActivity : AppCompatActivity() {
                 /* Populating extracted data into our views */
                 if (place.toString().equals("Valfurva")) {
                     findViewById<TextView>(R.id.place).text =
-                        place + ", IT \uD83C\uDDEE\uD83C\uDDF9"
+                            "$place, IT \uD83C\uDDEE\uD83C\uDDF9"
                 } else {
                     findViewById<TextView>(R.id.place).text = name
                 }
@@ -122,14 +124,14 @@ class MeteoActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.temperatureMax).text = tempMax
                 findViewById<TextView>(R.id.temperaturePer).text = percepita
                 findViewById<TextView>(R.id.sunrise).text =
-                    SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(sunrise * 1000))
+                        SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(sunrise * 1000))
                 findViewById<TextView>(R.id.sunset).text =
-                    SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(sunset * 1000))
+                        SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(sunset * 1000))
                 findViewById<TextView>(R.id.wind).text = windSpeed
                 findViewById<TextView>(R.id.pressure).text = pressure
                 findViewById<TextView>(R.id.humidity).text = humidity
                 findViewById<TextView>(R.id.cloud).text = cloud
-                findViewById<ImageView>(R.id.wIcon).setImageBitmap(MeteoIcon)
+                findViewById<ImageView>(R.id.wIcon).setImageBitmap(meteoIcon)
 
                 findViewById<ProgressBar>(R.id.caricamento).visibility = View.GONE
                 findViewById<RelativeLayout>(R.id.meteoContainer).visibility = View.VISIBLE

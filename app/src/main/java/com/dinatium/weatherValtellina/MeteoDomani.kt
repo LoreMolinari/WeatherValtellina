@@ -20,7 +20,9 @@ class MeteoDomani : AppCompatActivity() {
 
     /* Inizializzazione città e codice api */
     var place: String? = "Sondrio"
-    var MeteoIcon: Array<Bitmap?> = arrayOfNulls(7)
+    var meteoIcon: Array<Bitmap?> = arrayOfNulls(7)
+    private val wA = WeatherApi()
+    val apiKey: String = wA.getApi()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,11 +34,11 @@ class MeteoDomani : AppCompatActivity() {
             place = extras.getString("city").toString()
         }
 
-        weatherTomorrowTask().execute()
+        WeatherTomorrowTask().execute()
     }
 
     @SuppressLint("StaticFieldLeak")
-    inner class weatherTomorrowTask : AsyncTask<String, Void, String>() {
+    inner class WeatherTomorrowTask : AsyncTask<String, Void, String>() {
         override fun onPreExecute() {
             super.onPreExecute()
 
@@ -54,29 +56,29 @@ class MeteoDomani : AppCompatActivity() {
 
             try {
                 response = URL(
-                    when (currentPlace) {
-                        "Valfurva" -> {
-                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.414303131132186&lon=10.491103526898536&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
+                        when (currentPlace) {
+                            "Valfurva" -> {
+                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.414303131132186&lon=10.491103526898536&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                            }
+                            "Bormio" -> {
+                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.4684&lon=10.3721&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                            }
+                            "Valdidentro" -> {
+                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.4833&lon=10.2833&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                            }
+                            "Valdisotto" -> {
+                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.4344&lon=10.357&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                            }
+                            "Sondalo" -> {
+                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.3301&lon=10.3248&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                            }
+                            "Livigno" -> {
+                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.5347&lon=10.1337&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                            }
+                            else -> {
+                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.169&lon=9.8692&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                            }
                         }
-                        "Bormio" -> {
-                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.4684&lon=10.3721&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
-                        }
-                        "Valdidentro" -> {
-                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.4833&lon=10.2833&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
-                        }
-                        "Valdisotto" -> {
-                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.4344&lon=10.357&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
-                        }
-                        "Sondalo" -> {
-                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.3301&lon=10.3248&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
-                        }
-                        "Livigno" -> {
-                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.5347&lon=10.1337&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
-                        }
-                        else -> {
-                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.169&lon=9.8692&exclude=current,minutely,hourly,alerts&appid=c2724a1704dc301679793723df60b027&lang=it&units=metric"
-                        }
-                    }
                 ).readText(Charsets.UTF_8)
             } catch (e: Exception) {
                 response = null
@@ -88,7 +90,7 @@ class MeteoDomani : AppCompatActivity() {
                 val urldisplay = "https://openweathermap.org/img/wn/$icon@2x.png"
                 try {
                     val `in` = URL(urldisplay).openStream()
-                    MeteoIcon[x] = BitmapFactory.decodeStream(`in`)
+                    meteoIcon[x] = BitmapFactory.decodeStream(`in`)
                 } catch (e: java.lang.Exception) {
                     e.printStackTrace()
                 }
@@ -147,7 +149,7 @@ class MeteoDomani : AppCompatActivity() {
                 findViewById<TextView>(R.id.sunrise0).text = sunriseString[0]
                 findViewById<TextView>(R.id.sunset0).text = sunsetString[0]
                 findViewById<TextView>(R.id.rainfall0).text = rainfall[0].toString() + " mm"
-                findViewById<ImageView>(R.id.wIcon0).setImageBitmap(MeteoIcon[0])
+                findViewById<ImageView>(R.id.wIcon0).setImageBitmap(meteoIcon[0])
 
                 /*Second day*/
                 findViewById<TextView>(R.id.day1).text = dayString[1]
@@ -157,7 +159,7 @@ class MeteoDomani : AppCompatActivity() {
                 findViewById<TextView>(R.id.sunrise1).text = sunriseString[1]
                 findViewById<TextView>(R.id.sunset1).text = sunsetString[1]
                 findViewById<TextView>(R.id.rainfall1).text = rainfall[1].toString() + " mm"
-                findViewById<ImageView>(R.id.wIcon1).setImageBitmap(MeteoIcon[1])
+                findViewById<ImageView>(R.id.wIcon1).setImageBitmap(meteoIcon[1])
 
                 /*Third day*/
                 findViewById<TextView>(R.id.day2).text = dayString[2]
@@ -167,7 +169,7 @@ class MeteoDomani : AppCompatActivity() {
                 findViewById<TextView>(R.id.sunrise2).text = sunriseString[2]
                 findViewById<TextView>(R.id.sunset2).text = sunsetString[2]
                 findViewById<TextView>(R.id.rainfall2).text = rainfall[2].toString() + " mm"
-                findViewById<ImageView>(R.id.wIcon2).setImageBitmap(MeteoIcon[2])
+                findViewById<ImageView>(R.id.wIcon2).setImageBitmap(meteoIcon[2])
 
                 /*Fourth day*/
                 findViewById<TextView>(R.id.day3).text = dayString[3]
@@ -177,7 +179,7 @@ class MeteoDomani : AppCompatActivity() {
                 findViewById<TextView>(R.id.sunrise3).text = sunriseString[3]
                 findViewById<TextView>(R.id.sunset3).text = sunsetString[3]
                 findViewById<TextView>(R.id.rainfall3).text = rainfall[3].toString() + " mm"
-                findViewById<ImageView>(R.id.wIcon3).setImageBitmap(MeteoIcon[3])
+                findViewById<ImageView>(R.id.wIcon3).setImageBitmap(meteoIcon[3])
 
                 /*Fifth day*/
                 findViewById<TextView>(R.id.day4).text = dayString[4]
@@ -187,7 +189,7 @@ class MeteoDomani : AppCompatActivity() {
                 findViewById<TextView>(R.id.sunrise4).text = sunriseString[4]
                 findViewById<TextView>(R.id.sunset4).text = sunsetString[4]
                 findViewById<TextView>(R.id.rainfall4).text = rainfall[4].toString() + " mm"
-                findViewById<ImageView>(R.id.wIcon4).setImageBitmap(MeteoIcon[4])
+                findViewById<ImageView>(R.id.wIcon4).setImageBitmap(meteoIcon[4])
 
                 /*Sixth day*/
                 findViewById<TextView>(R.id.day5).text = dayString[5]
@@ -197,7 +199,7 @@ class MeteoDomani : AppCompatActivity() {
                 findViewById<TextView>(R.id.sunrise5).text = sunriseString[5]
                 findViewById<TextView>(R.id.sunset5).text = sunsetString[5]
                 findViewById<TextView>(R.id.rainfall5).text = rainfall[5].toString() + " mm"
-                findViewById<ImageView>(R.id.wIcon5).setImageBitmap(MeteoIcon[5])
+                findViewById<ImageView>(R.id.wIcon5).setImageBitmap(meteoIcon[5])
 
                 /*Seventh day*/
                 findViewById<TextView>(R.id.day6).text = dayString[6]
@@ -207,7 +209,7 @@ class MeteoDomani : AppCompatActivity() {
                 findViewById<TextView>(R.id.sunrise6).text = sunriseString[6]
                 findViewById<TextView>(R.id.sunset6).text = sunsetString[6]
                 findViewById<TextView>(R.id.rainfall6).text = rainfall[6].toString() + " mm"
-                findViewById<ImageView>(R.id.wIcon6).setImageBitmap(MeteoIcon[6])
+                findViewById<ImageView>(R.id.wIcon6).setImageBitmap(meteoIcon[6])
 
 
                 findViewById<ProgressBar>(R.id.caricamento).visibility = View.GONE
@@ -221,7 +223,7 @@ class MeteoDomani : AppCompatActivity() {
 
                 val eventopulsante: Button = findViewById(R.id.errore)
                 eventopulsante.setOnClickListener {
-                    weatherTomorrowTask().execute()
+                    WeatherTomorrowTask().execute()
                 }
             }
         }
