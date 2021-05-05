@@ -34,8 +34,8 @@ class MeteoActivity : AppCompatActivity() {
 
         WeatherTask().execute()
 
-        val meteoDomani: Button = findViewById(R.id.meteoDomani)
-        meteoDomani.setOnClickListener {
+        val domaniButton: Button = findViewById(R.id.meteoDomani)
+        domaniButton.setOnClickListener {
             val i = Intent(applicationContext, MeteoDomani::class.java)
             i.putExtra("city", place)
             startActivity(i)
@@ -107,8 +107,7 @@ class MeteoActivity : AppCompatActivity() {
                 val sunset: Long = sys.getLong("sunset")
                 val windSpeed = wind.getString("speed") + " m/s"
                 val weatherDescription = weather.getString("description")
-                val name =
-                    jsonObj.getString("name") + ", " + sys.getString("country") + " \uD83C\uDDEE\uD83C\uDDF9"
+                val name = jsonObj.getString("name") + ", " + sys.getString("country") + " \uD83C\uDDEE\uD83C\uDDF9"
                 val cloud = jsonObj.getJSONObject("clouds").getString("all") + "%"
                 /* Populating extracted data into our views */
                 if (place.toString().equals("Valfurva")) {

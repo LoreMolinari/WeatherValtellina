@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".meteoDomani"/>
+        <activity android:name=".MeteoDomani"/>
         <activity android:name=".MeteoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
