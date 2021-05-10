@@ -4,12 +4,30 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val mAdView = findViewById<AdView>(R.id.adView)
+
+        MobileAds.initialize(this) {}
+
+        // Create an ad request.
+        val adRequest = AdRequest.Builder().build()
+
+        // Start loading the ad in the background.
+        val adView = AdView(this)
+        adView.adSize = AdSize.BANNER
+        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
+
+        mAdView.loadAd(adRequest)
+
 
         val bormioEvent: Button = findViewById(R.id.bormioButton)
         bormioEvent.setOnClickListener {
@@ -60,5 +78,23 @@ class MainActivity : AppCompatActivity() {
             i.putExtra("city", "Livigno")
             startActivity(i)
         }
+    }
+
+    // Called when leaving the activity
+    public override fun onPause() {
+        adView.pause()
+        super.onPause()
+    }
+
+    // Called when returning to the activity
+    public override fun onResume() {
+        super.onResume()
+        adView.resume()
+    }
+
+    // Called before the activity is destroyed
+    public override fun onDestroy() {
+        adView.destroy()
+        super.onDestroy()
     }
 }
