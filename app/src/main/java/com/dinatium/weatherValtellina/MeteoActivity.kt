@@ -19,8 +19,6 @@ import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 
-const val INT_AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"
-
 @Suppress("DEPRECATION", "NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class MeteoActivity : AppCompatActivity() {
 
@@ -30,18 +28,9 @@ class MeteoActivity : AppCompatActivity() {
     private val wA = WeatherApi()
     val apiKey: String = wA.getApi()
 
-    /* Ad After back pressed */
-    private var mInterstitialAd: InterstitialAd? = null
-    private var TAG = "MeteoSettimana"
-    private var mAdIsLoading: Boolean = false
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meteo)
-
-        loadAd()
 
         val mAdView = findViewById<AdView>(R.id.adView)
 
@@ -71,86 +60,7 @@ class MeteoActivity : AppCompatActivity() {
             startActivity(i)
         }
     }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-
-        // Initialize the Mobile Ads SDK.
-        MobileAds.initialize(this) {}
-
-        if (!mAdIsLoading && mInterstitialAd == null) {
-            mAdIsLoading = true
-            loadAd()
-        }else{
-            showInterstitial()
-        }
-
-        showInterstitial()
-
-
-    }
-
-    private fun loadAd() {
-        var adRequest = AdRequest.Builder().build()
-
-        InterstitialAd.load(
-            this, INT_AD_UNIT_ID, adRequest,
-            object : InterstitialAdLoadCallback() {
-                override fun onAdFailedToLoad(adError: LoadAdError) {
-                    Log.d(TAG, adError?.message)
-                    mInterstitialAd = null
-                    mAdIsLoading = false
-                    val error = "domain: ${adError.domain}, code: ${adError.code}, " +
-                            "message: ${adError.message}"
-                    Toast.makeText(
-                        this@MeteoActivity,
-                        "onAdFailedToLoad() with error $error",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-                override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                    Log.d(TAG, "Ad was loaded.")
-                    mInterstitialAd = interstitialAd
-                    mAdIsLoading = false
-                    Toast.makeText(this@MeteoActivity, "onAdLoaded()", Toast.LENGTH_SHORT).show()
-                }
-            }
-        )
-    }
-
-    private fun showInterstitial() {
-        if (mInterstitialAd != null) {
-            mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
-                override fun onAdDismissedFullScreenContent() {
-                    Log.d(TAG, "Ad was dismissed.")
-                    // Don't forget to set the ad reference to null so you
-                    // don't show the ad a second time.
-                    mInterstitialAd = null
-                    loadAd()
-                }
-
-                override fun onAdFailedToShowFullScreenContent(adError: AdError?) {
-                    Log.d(TAG, "Ad failed to show.")
-                    // Don't forget to set the ad reference to null so you
-                    // don't show the ad a second time.
-                    mInterstitialAd = null
-                }
-
-                override fun onAdShowedFullScreenContent() {
-                    Log.d(TAG, "Ad showed fullscreen content.")
-                    // Called when ad is dismissed.
-                }
-            }
-            mInterstitialAd?.show(this)
-        } else {
-            Toast.makeText(this, "Ad wasn't loaded.", Toast.LENGTH_SHORT).show()
-            showInterstitial()
-        }
-    }
-
-
-
+    
     @SuppressLint("StaticFieldLeak")
     inner class WeatherTask : AsyncTask<String, Void, String>() {
         override fun onPreExecute() {
