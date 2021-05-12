@@ -7,18 +7,19 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.*
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 @Suppress("SpellCheckingInspection", "NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class MeteoDomani : AppCompatActivity() {
@@ -44,7 +45,7 @@ class MeteoDomani : AppCompatActivity() {
         // Start loading the ad in the background.
         val adView = AdView(this)
         adView.adSize = AdSize.BANNER
-        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
+        adView.adUnitId = "ca-app-pub-9907554154077581/5165075814"
 
         mAdView.loadAd(adRequest)
 
@@ -265,5 +266,9 @@ class MeteoDomani : AppCompatActivity() {
         adView.destroy()
         super.onDestroy()
     }
+
+
+
+
 }
 

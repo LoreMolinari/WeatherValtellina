@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         // Start loading the ad in the background.
         val adView = AdView(this)
         adView.adSize = AdSize.BANNER
-        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
+        adView.adUnitId = "ca-app-pub-9907554154077581/5165075814"
 
         mAdView.loadAd(adRequest)
 
