@@ -33,7 +33,7 @@ class MeteoDomani : AppCompatActivity() {
 
     /* Ad After back pressed */
     private var mInterstitialAd: InterstitialAd? = null
-    private var TAG = "MeteoSettimana"
+    private val TAG = "MeteoApp"
     private var mAdIsLoading: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,7 +73,7 @@ class MeteoDomani : AppCompatActivity() {
         if (!mAdIsLoading && mInterstitialAd == null) {
             mAdIsLoading = true
             loadAd()
-        }else{
+        } else {
             showInterstitial()
         }
 
@@ -83,13 +83,13 @@ class MeteoDomani : AppCompatActivity() {
     }
 
     private fun loadAd() {
-        var adRequest = AdRequest.Builder().build()
+        val adRequest = AdRequest.Builder().build()
 
         InterstitialAd.load(
             this, INT_AD_UNIT_ID, adRequest,
             object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
-                    Log.d(TAG, adError?.message)
+                    Log.d(TAG, adError.message)
                     mInterstitialAd = null
                     mAdIsLoading = false
                 }
@@ -150,29 +150,29 @@ class MeteoDomani : AppCompatActivity() {
 
             try {
                 response = URL(
-                        when (currentPlace) {
-                            "Valfurva" -> {
-                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.414303131132186&lon=10.491103526898536&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
-                            }
-                            "Bormio" -> {
-                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.4684&lon=10.3721&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
-                            }
-                            "Valdidentro" -> {
-                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.4833&lon=10.2833&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
-                            }
-                            "Valdisotto" -> {
-                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.4344&lon=10.357&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
-                            }
-                            "Sondalo" -> {
-                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.3301&lon=10.3248&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
-                            }
-                            "Livigno" -> {
-                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.5347&lon=10.1337&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
-                            }
-                            else -> {
-                                "https://api.openweathermap.org/data/2.5/onecall?lat=46.169&lon=9.8692&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
-                            }
+                    when (currentPlace) {
+                        "Valfurva" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.414303131132186&lon=10.491103526898536&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
                         }
+                        "Bormio" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.4684&lon=10.3721&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                        }
+                        "Valdidentro" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.4833&lon=10.2833&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                        }
+                        "Valdisotto" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.4344&lon=10.357&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                        }
+                        "Sondalo" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.3301&lon=10.3248&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                        }
+                        "Livigno" -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.5347&lon=10.1337&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                        }
+                        else -> {
+                            "https://api.openweathermap.org/data/2.5/onecall?lat=46.169&lon=9.8692&exclude=current,minutely,hourly,alerts&appid=$apiKey&lang=it&units=metric"
+                        }
+                    }
                 ).readText(Charsets.UTF_8)
             } catch (e: Exception) {
                 response = null
@@ -180,7 +180,8 @@ class MeteoDomani : AppCompatActivity() {
             }
 
             for (x in 0..6) {
-                val icon = JSONObject(response).getJSONArray("daily").getJSONObject(x).getJSONArray("weather").getJSONObject(0).getString("icon")
+                val icon = JSONObject(response).getJSONArray("daily").getJSONObject(x)
+                    .getJSONArray("weather").getJSONObject(0).getString("icon")
                 val urldisplay = "https://openweathermap.org/img/wn/$icon@2x.png"
                 try {
                     val `in` = URL(urldisplay).openStream()
@@ -211,14 +212,40 @@ class MeteoDomani : AppCompatActivity() {
                 val rainfall = IntArray(7)
 
                 for (x in 0..6) {
-                    dayString[x] = SimpleDateFormat("EEEE dd/MM/yyyy", Locale.ITALIAN).format(Date(jsonObj.getJSONArray("daily").getJSONObject(x).getLong("dt") * 1000))
-                    sunriseString[x] = SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(jsonObj.getJSONArray("daily").getJSONObject(x).getLong("sunrise") * 1000))
-                    sunsetString[x] = SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(jsonObj.getJSONArray("daily").getJSONObject(x).getLong("sunset") * 1000))
+                    dayString[x] = SimpleDateFormat(
+                        "EEEE dd/MM/yyyy",
+                        Locale.ITALIAN
+                    ).format(
+                        Date(
+                            jsonObj.getJSONArray("daily").getJSONObject(x).getLong("dt") * 1000
+                        )
+                    )
+                    sunriseString[x] = SimpleDateFormat(
+                        "HH:mm",
+                        Locale.ITALIAN
+                    ).format(
+                        Date(
+                            jsonObj.getJSONArray("daily").getJSONObject(x).getLong("sunrise") * 1000
+                        )
+                    )
+                    sunsetString[x] = SimpleDateFormat(
+                        "HH:mm",
+                        Locale.ITALIAN
+                    ).format(
+                        Date(
+                            jsonObj.getJSONArray("daily").getJSONObject(x).getLong("sunset") * 1000
+                        )
+                    )
 
-                    temp[x] = jsonObj.getJSONArray("daily").getJSONObject(x).getJSONObject("temp").getInt("day")
-                    fellsLike[x] = jsonObj.getJSONArray("daily").getJSONObject(x).getJSONObject("feels_like").getInt("day")
+                    temp[x] = jsonObj.getJSONArray("daily").getJSONObject(x).getJSONObject("temp")
+                        .getInt("day")
+                    fellsLike[x] =
+                        jsonObj.getJSONArray("daily").getJSONObject(x).getJSONObject("feels_like")
+                            .getInt("day")
 
-                    weather[x] = jsonObj.getJSONArray("daily").getJSONObject(x).getJSONArray("weather").getJSONObject(0).getString("description")
+                    weather[x] =
+                        jsonObj.getJSONArray("daily").getJSONObject(x).getJSONArray("weather")
+                            .getJSONObject(0).getString("description")
 
                     var rain = 0
                     try {
@@ -340,8 +367,6 @@ class MeteoDomani : AppCompatActivity() {
         adView.destroy()
         super.onDestroy()
     }
-
-
 
 
 }

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/meteoContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/meteoContainer"
-    android:orientation="vertical"
+    android:layout_gravity="center"
     android:background="@drawable/gradient"
-    android:visibility="visible"
-    android:layout_gravity="center">
+    android:orientation="vertical"
+    android:visibility="visible">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -121,8 +122,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:contentDescription="TODO"
-                                    android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    android:src="@drawable/temperature"/>
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -161,7 +161,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -200,7 +200,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/sunrise"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -240,7 +240,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/sunset"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -279,7 +279,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/rain"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -387,7 +387,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -426,7 +426,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -465,7 +465,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/sunrise"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -505,7 +505,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/sunset"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -544,7 +544,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/rain"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -652,7 +652,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -691,7 +691,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -730,7 +730,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/sunrise"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -770,7 +770,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/sunset"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -809,7 +809,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/rain"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -917,7 +917,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -956,7 +956,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -995,7 +995,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/sunrise"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1035,7 +1035,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/sunset"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1074,7 +1074,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/rain"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1183,7 +1183,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1222,7 +1222,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1261,7 +1261,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/sunrise"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1301,7 +1301,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/sunset"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1340,7 +1340,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/rain"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1450,7 +1450,7 @@
                                     android:layout_height="40dp"
                                     android:contentDescription="@string/todo"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1490,7 +1490,7 @@
                                     android:layout_height="40dp"
                                     android:contentDescription="@string/todo"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1530,7 +1530,7 @@
                                     android:layout_height="40dp"
                                     android:contentDescription="@string/todo"
                                     android:src="@drawable/sunrise"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1571,7 +1571,7 @@
                                     android:layout_height="40dp"
                                     android:contentDescription="@string/todo"
                                     android:src="@drawable/sunset"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1611,7 +1611,7 @@
                                     android:layout_height="40dp"
                                     android:contentDescription="@string/todo"
                                     android:src="@drawable/rain"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1721,7 +1721,7 @@
                                     android:layout_height="40dp"
                                     android:contentDescription="@string/todo"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1761,7 +1761,7 @@
                                     android:layout_height="40dp"
                                     android:contentDescription="TODO"
                                     android:src="@drawable/temperature"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1801,7 +1801,7 @@
                                     android:layout_height="40dp"
                                     android:contentDescription="@string/todo"
                                     android:src="@drawable/sunrise"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1842,7 +1842,7 @@
                                     android:layout_height="40dp"
                                     android:contentDescription="@string/todo"
                                     android:src="@drawable/sunset"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1881,7 +1881,7 @@
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/rain"
-                                    android:tint="#FFFFFF" />
+                                    />
 
                                 <Space
                                     android:layout_width="wrap_content"
@@ -1910,17 +1910,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="30dp" />
 
-                <com.google.android.gms.ads.AdView
-                    xmlns:ads="http://schemas.android.com/apk/res-auto"
+                <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/adView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="20dp"
                     ads:adSize="BANNER"
-                    ads:adUnitId="ca-app-pub-9907554154077581/5165075814">
-                </com.google.android.gms.ads.AdView>
+                    ads:adUnitId="ca-app-pub-9907554154077581/5165075814"></com.google.android.gms.ads.AdView>
 
             </LinearLayout>
         </RelativeLayout>

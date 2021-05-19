@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.dinatium.weatherValtellina
 
 import android.annotation.SuppressLint
@@ -6,13 +8,13 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.ads.*
-import com.google.android.gms.ads.interstitial.InterstitialAd
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.net.URL
@@ -60,7 +62,7 @@ class MeteoActivity : AppCompatActivity() {
             startActivity(i)
         }
     }
-    
+
     @SuppressLint("StaticFieldLeak")
     inner class WeatherTask : AsyncTask<String, Void, String>() {
         override fun onPreExecute() {
@@ -76,11 +78,11 @@ class MeteoActivity : AppCompatActivity() {
             val response = try {
                 if (place.toString() == "Valfurva") {
                     URL("https://api.openweathermap.org/data/2.5/weather?lat=46.414303131132186&lon=10.491103526898536&appid=$apiKey&lang=it&units=metric").readText(
-                            Charsets.UTF_8
+                        Charsets.UTF_8
                     )
                 } else {
                     URL("https://api.openweathermap.org/data/2.5/weather?q=$place&appid=$apiKey&lang=it&units=metric").readText(
-                            Charsets.UTF_8
+                        Charsets.UTF_8
                     )
                 }
             } catch (e: Exception) {
@@ -88,9 +90,9 @@ class MeteoActivity : AppCompatActivity() {
             }
 
             val icon = JSONObject(response)
-                    .getJSONArray("weather")
-                    .getJSONObject(0)
-                    .getString("icon")
+                .getJSONArray("weather")
+                .getJSONObject(0)
+                .getString("icon")
 
             val urldisplay = "https://openweathermap.org/img/wn/$icon@2x.png"
 
@@ -125,12 +127,13 @@ class MeteoActivity : AppCompatActivity() {
                 val sunset: Long = sys.getLong("sunset")
                 val windSpeed = wind.getString("speed") + " m/s"
                 val weatherDescription = weather.getString("description")
-                val name = jsonObj.getString("name") + ", " + sys.getString("country") + " \uD83C\uDDEE\uD83C\uDDF9"
+                val name =
+                    jsonObj.getString("name") + ", " + sys.getString("country") + " \uD83C\uDDEE\uD83C\uDDF9"
                 val cloud = jsonObj.getJSONObject("clouds").getString("all") + "%"
                 /* Populating extracted data into our views */
-                if (place.toString().equals("Valfurva")) {
+                if (place.toString() == "Valfurva") {
                     findViewById<TextView>(R.id.place).text =
-                            "$place, IT \uD83C\uDDEE\uD83C\uDDF9"
+                        "$place, IT \uD83C\uDDEE\uD83C\uDDF9"
                 } else {
                     findViewById<TextView>(R.id.place).text = name
                 }
@@ -140,9 +143,9 @@ class MeteoActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.temperatureMax).text = tempMax
                 findViewById<TextView>(R.id.temperaturePer).text = percepita
                 findViewById<TextView>(R.id.sunrise).text =
-                        SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(sunrise * 1000))
+                    SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(sunrise * 1000))
                 findViewById<TextView>(R.id.sunset).text =
-                        SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(sunset * 1000))
+                    SimpleDateFormat("HH:mm", Locale.ITALIAN).format(Date(sunset * 1000))
                 findViewById<TextView>(R.id.wind).text = windSpeed
                 findViewById<TextView>(R.id.pressure).text = pressure
                 findViewById<TextView>(R.id.humidity).text = humidity
