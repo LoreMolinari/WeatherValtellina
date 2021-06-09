@@ -81,6 +81,34 @@ class MainActivity : AppCompatActivity() {
             i.putExtra("city", "Livigno")
             startActivity(i)
         }
+
+        val tiranoEvent: Button = findViewById(R.id.tiranoButton)
+        tiranoEvent.setOnClickListener {
+            val i = Intent(applicationContext, MeteoActivity::class.java)
+            i.putExtra("city", "Tirano")
+            startActivity(i)
+        }
+
+        val grosioEvent: Button = findViewById(R.id.grosioButton)
+        grosioEvent.setOnClickListener {
+            val i = Intent(applicationContext, MeteoActivity::class.java)
+            i.putExtra("city", "Grosio")
+            startActivity(i)
+        }
+
+        val grosottoEvent: Button = findViewById(R.id.grosottoButton)
+        grosottoEvent.setOnClickListener {
+            val i = Intent(applicationContext, MeteoActivity::class.java)
+            i.putExtra("city", "Grosotto")
+            startActivity(i)
+        }
+
+        val morbegnoEvent: Button = findViewById(R.id.morbegnoButton)
+        morbegnoEvent.setOnClickListener {
+            val i = Intent(applicationContext, MeteoActivity::class.java)
+            i.putExtra("city", "Morbegno")
+            startActivity(i)
+        }
     }
 
     // Called when leaving the activity
